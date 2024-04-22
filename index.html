@@ -2,34 +2,32 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analog Clock</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Clock</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" type="module"></script>
 </head>
 
 <body>
-    <div class="clock">
-        <div class="hour-hand"></div>
-        <div class="minute-hand"></div>
-        <div class="second-hand"></div>
-        <div class="center"></div>
-        <div class="hours">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-            <div>10</div>
-            <div>11</div>
-            <div>12</div>
+  <main>
+    <div class="container">
+      <div class="clock--wrapper">
+        <h2>My time</h2>
+        <div class="clock">
+          <svg class="clockface" width="300" height="300" viewbox="-150 -150 300 300">
+            <circle class="ring ring--seconds" r="145" fill="transparent" pathlength="60" />
+            <circle class="ring ring--hours" r="145" pathlength="12" />
+            <line class="hand hand--minute" x1="0" y1="2" x2="0" y2="-110"/>
+            <line class="hand hand--hour" x1="0" y1="2" x2="0" y2="-60"/>
+            <line class="hand hand--second" x1="0" y1="12" x2="0" y2="-130"/>
+            <circle class="ring ring--center" r="3" />
+          </svg>
         </div>
+      </div>
     </div>
-    <script src="script.js"></script>
+  </main>
 </body>
 
 </html>
