@@ -81,7 +81,19 @@ const updateClock = () => {
   UI.dhuhr_arc.setAttribute("d", describeArc(0, 0, 145, dhuhr, asr));
   UI.asr_arc.setAttribute("d", describeArc(0, 0, 145, asr, maghrib));
   UI.maghrib_arc.setAttribute("d", describeArc(0, 0, 145, maghrib, isha));
-  UI.isha_arc.setAttribute("d", describeArc(0, 0, 145, isha, 0));
+  UI.isha_arc.setAttribute("d", describeArc(0, 0, 145, isha, dhuhr));
+
+  if (dhuhr < hours && hours > asr) {
+    UI.dhuhr_arc.style.stroke = "var(--red)";
+    UI.dhuhr_arc.style.strokeWidth = "3";
+  } else if (asr < hours && hours > maghrib) {
+    UI.asr_arc.style.stroke = "var(--red)";
+    UI.asr_arc.style.strokeWidth = "3";
+  } else if (asr < maghrib && hours > isha) {
+    UI.maghrib_arc.style.stroke = "var(--red)";
+    UI.maghrib_arc.style.strokeWidth = "3";
+  }
+  //  else if ()
 
   requestAnimationFrame(updateClock)
 }

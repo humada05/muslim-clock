@@ -22,21 +22,22 @@
             <line class="hand hand--hour" x1="0" y1="2" x2="0" y2="-60"/>
             <line class="hand hand--second" x1="0" y1="12" x2="0" y2="-130"/>
             <circle class="ring ring--center" r="3"/>
-            <line class="prayertime dhuhr" x1="0" y1="-150" x2="0" y2="-140"/>
-            <line class="prayertime asr" x1="0" y1="-150" x2="0" y2="-140"/>
-            <line class="prayertime maghrib" x1="0" y1="-150" x2="0" y2="-140"/>
-            <line class="prayertime isha" x1="0" y1="-150" x2="0" y2="-140"/>
             
             <path class="prayertime dhuhr-arc" id="dhuhr-arc"/>
             <path class="prayertime asr-arc" id="asr-arc"/>
             <path class="prayertime maghrib-arc" id="maghrib-arc"/>
             <path class="prayertime isha-arc" id="isha-arc"/>
 
+            <line class="prayertime dhuhr" x1="0" y1="-150" x2="0" y2="-140"/>
+            <line class="prayertime asr" x1="0" y1="-150" x2="0" y2="-140"/>
+            <line class="prayertime maghrib" x1="0" y1="-150" x2="0" y2="-140"/>
+            <line class="prayertime isha" x1="0" y1="-150" x2="0" y2="-140"/>
+
             <text class="prayertime labels">
-              <textPath href="#dhuhr-arc" startOffset="50%" text-anchor="middle">الفجر</textPath>
-              <textPath href="#asr-arc" startOffset="50%" text-anchor="middle">العصر</textPath>
-              <textPath href="#maghrib-arc" startOffset="50%" text-anchor="middle">المغرب</textPath>
-              <textPath href="#isha-arc" startOffset="50%" text-anchor="middle">العشعء</textPath>
+              <textPath id="dhuhr-arabic" href="#dhuhr-arc" startOffset="50%" text-anchor="middle" >الظهر</textPath>
+              <textPath id="asr-arabic" href="#asr-arc" startOffset="50%" text-anchor="middle">العصر</textPath>
+              <textPath id="maghrib-arabic" href="#maghrib-arc" startOffset="50%" text-anchor="middle">المغرب</textPath>
+              <textPath id="isha-arabic" href="#isha-arc" startOffset="50%" text-anchor="middle">العشاء</textPath>
             </text>
           </svg>
         </div>

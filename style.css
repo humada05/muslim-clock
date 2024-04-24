@@ -6,9 +6,9 @@
   
   :root {
     --bkg: #f8f5f2;
-    --dark: #078080;
-    --purple: #f45d48;
-    --pink: #232323;
+    --darkgreen: #078080;
+    --red: #f45d48;
+    --black: #232323;
     --white:#f8f5f2;
   }
   
@@ -35,59 +35,51 @@
     gap: 2rem;
     color: var(--white);
   }
-  
-  .clockface {
-    /* filter: drop-shadow(2px 10px 10px var(--dark)); */
-  }
-
 
   .ring--seconds {
-    fill: var(--dark);
-    stroke: var(--pink);
+    fill: var(--darkgreen);
+    stroke: var(--black);
     stroke-width: 5;
     stroke-dasharray:.1 .9; stroke-dashoffset: .05;
   }
   
   .ring--hours {
     fill: transparent;
-    stroke: var(--purple);
+    stroke: var(--black);
     stroke-width: 10;
     stroke-dasharray:.05 .95; stroke-dashoffset: .025;
   }
   
   .ring--center {
-    fill: var(--pink);
-    stroke: var(--white);
+    fill: var(--black);
+    stroke: var(--black);
     stroke-width: 2.5;
   }
   
   .hand {
-    stroke: var(--pink);
     stroke-linecap: round;
+    stroke: var(--black);
   }
   
   .hand--hour {
-    transform: rotate(45deg);
     stroke-width: 5;
-    stroke: var(--white);
+    stroke: var(--red)
   }
   
   .hand--minute {
-    stroke: var(--purple);
-    transform: rotate(93deg);
     stroke-width: 5;
   }
 
   .prayertime {
-    /* stroke-width:3; */
-    stroke:var(--dark);
+    stroke: var(--darkgreen);
     fill:none
   }
 
   svg line.prayertime {
-    stroke-width:3;
+    stroke: var(--red);
+    stroke-width:4;
   }
 
   .prayertime.labels {
-    fill:var(--dark);
+    fill:var(--darkgreen);
   }
