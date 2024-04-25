@@ -58,7 +58,7 @@ const updateClock = () => {
   // const date = now.getDate();
   const seconds = (now.getSeconds() + now.getMilliseconds() / 1000) / 60 * 360;
   const minutes = (now.getMinutes() + now.getSeconds() / 60) / 60 * 360;
-  const hours = (now.getHours() + now.getMinutes() / 60) / 12 * 360;
+  const hours = (now.getHours()%12 + now.getMinutes() / 60) / 12 * 360;
 
   const prayTimes = new PrayTimes('ISNA').getTimes(new Date(), [37.8, -122])
 
@@ -83,13 +83,13 @@ const updateClock = () => {
   UI.maghrib_arc.setAttribute("d", describeArc(0, 0, 145, maghrib, isha));
   UI.isha_arc.setAttribute("d", describeArc(0, 0, 145, isha, dhuhr));
 
-  if (dhuhr < hours && hours > asr) {
+  if (dhuhr < hours && hours < asr) {
     UI.dhuhr_arc.style.stroke = "var(--red)";
     UI.dhuhr_arc.style.strokeWidth = "3";
-  } else if (asr < hours && hours > maghrib) {
+  } else if (asr < hours && hours < maghrib) {
     UI.asr_arc.style.stroke = "var(--red)";
     UI.asr_arc.style.strokeWidth = "3";
-  } else if (asr < maghrib && hours > isha) {
+  } else if (maghrib < hours && hours < isha) {
     UI.maghrib_arc.style.stroke = "var(--red)";
     UI.maghrib_arc.style.strokeWidth = "3";
   }
