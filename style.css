@@ -77,6 +77,6 @@
     marker-end:url(#dotMarker);
   }
 
-  .prayer-labels {
+  .prayer--labels {
     fill:var(--darkgreen);
   }
