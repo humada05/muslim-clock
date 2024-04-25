@@ -72,14 +72,11 @@
 
   .prayertime {
     stroke: var(--darkgreen);
-    fill:none
+    fill:none;
+    marker-start:url(#dotMarker);
+    marker-end:url(#dotMarker);
   }
 
-  svg line.prayertime {
-    stroke: var(--red);
-    stroke-width:4;
-  }
-
-  .prayertime.labels {
+  .prayer-labels {
     fill:var(--darkgreen);
   }

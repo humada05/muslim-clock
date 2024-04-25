@@ -16,6 +16,11 @@
       <div class="clock--wrapper">
         <div class="clock">
           <svg class="clockface" width="400" height="400" viewbox="-200 -200 400 400">
+            <defs>
+              <marker id="dotMarker" markerWidth="8" markerHeight="8" refX="4" refY="4" fill="var(--darkgreen)" >
+                <circle cx="4" cy="4" r="4" />
+              </marker>
+            </defs>
             <circle class="ring ring--seconds" r="125" fill="transparent" pathlength="60" />
             <circle class="ring ring--hours" r="125" pathlength="12" />
             <line class="hand hand--minute" x1="0" y1="2" x2="0" y2="-110"/>
@@ -24,20 +29,17 @@
             <circle class="ring ring--center" r="3"/>
             
             <path class="prayertime dhuhr-arc" id="dhuhr-arc"/>
-            <path class="prayertime asr-arc" id="asr-arc"/>
-            <path class="prayertime maghrib-arc" id="maghrib-arc"/>
-            <path class="prayertime isha-arc" id="isha-arc"/>
+            <path class="prayertime asr-arc" id="asr-arc" />
+            <path class="prayertime maghrib-arc" id="maghrib-arc" />
+            <path class="prayertime isha-arc" id="isha-arc" />
+            <path class="prayertime fajr-arc" id="fajr-arc" />
 
-            <line class="prayertime dhuhr" x1="0" y1="-150" x2="0" y2="-140"/>
-            <line class="prayertime asr" x1="0" y1="-150" x2="0" y2="-140"/>
-            <line class="prayertime maghrib" x1="0" y1="-150" x2="0" y2="-140"/>
-            <line class="prayertime isha" x1="0" y1="-150" x2="0" y2="-140"/>
-
-            <text class="prayertime labels">
+            <text class="prayer-labels">
               <textPath id="dhuhr-arabic" href="#dhuhr-arc" startOffset="50%" text-anchor="middle" >الظهر</textPath>
               <textPath id="asr-arabic" href="#asr-arc" startOffset="50%" text-anchor="middle">العصر</textPath>
               <textPath id="maghrib-arabic" href="#maghrib-arc" startOffset="50%" text-anchor="middle">المغرب</textPath>
               <textPath id="isha-arabic" href="#isha-arc" startOffset="50%" text-anchor="middle">العشاء</textPath>
+              <textPath id="fajr-arabic" href="#fajr-arc" startOffset="50%" text-anchor="middle">الفجر</textPath>
             </text>
           </svg>
         </div>
