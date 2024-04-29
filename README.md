@@ -1,5 +1,7 @@
 # muslim-clock
 
+link: https://humada05.github.io/muslim-clock/
+
 twitter suggestions
 
 **Fajr/AM times are not working**
