@@ -6,7 +6,7 @@ twitter suggestions
 
 **Fajr/AM times are not working**
 
-- [ ] _"Looks good. Could you add a range within which the times are valid e.g. Midnight for Isha, sunrise for Fajr.."_
+- [x] _"Looks good. Could you add a range within which the times are valid e.g. Midnight for Isha, sunrise for Fajr.."_
 
 - [ ] _"Is there a reason Fajr is missing? Also consider Duhaa since no other prayer is offered at that time?"_
 
