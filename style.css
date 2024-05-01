@@ -5,15 +5,14 @@
   }
   
   :root {
-    --bkg: #f8f5f2;
-    --darkgreen: #078080;
-    --red: #f45d48;
-    --black: #232323;
-    --white:#f8f5f2;
+    --main: #fffffe;
+    --highlight: #067380;
+    --secondary: #f25f4c;
+    --stroke: #1f1235;
   }
   
   body {
-    background-color: var(--bkg);
+    background-color: var(--main);
     display: grid;
     place-items: center;
     min-height: 100vh;
@@ -37,46 +36,46 @@
   }
 
   .ring--seconds {
-    fill: var(--darkgreen);
-    stroke: var(--black);
+    fill: var(--highlight);
+    stroke: var(--stroke);
     stroke-width: 5;
     stroke-dasharray:.1 .9; stroke-dashoffset: .05;
   }
   
   .ring--hours {
     fill: transparent;
-    stroke: var(--black);
+    stroke: var(--stroke);
     stroke-width: 10;
     stroke-dasharray:.05 .95; stroke-dashoffset: .025;
   }
   
   .ring--center {
-    fill: var(--black);
-    stroke: var(--black);
+    fill: var(--stroke);
+    stroke: var(--stroke);
     stroke-width: 2.5;
   }
   
   .hand {
     stroke-linecap: round;
-    stroke: var(--black);
+    stroke: var(--stroke);
   }
   
   .hand--hour {
     stroke-width: 5;
-    stroke: var(--red)
+    stroke: var(--secondary)
   }
   
   .hand--minute {
     stroke-width: 5;
   }
 
-  .prayertime {
-    stroke: var(--darkgreen);
+  svg .prayertime {
+    marker-start:url(#prayerMarker);
+    marker-end:url(#prayerMarker);
+    stroke: var(--highlight);
     fill:none;
-    marker-start:url(#dotMarker);
-    marker-end:url(#dotMarker);
   }
 
   .prayer--labels {
-    fill:var(--darkgreen);
+    fill:var(--highlight);
   }

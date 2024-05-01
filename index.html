@@ -15,10 +15,10 @@
     <div class="container">
       <div class="clock--wrapper">
         <div class="clock">
-          <svg class="clockface" width="400" height="400" viewbox="-200 -200 400 400">
+          <svg class="clockface" width="500" height="500" viewbox="-250 -250 500 500">
             <defs>
-              <marker id="dotMarker" markerWidth="8" markerHeight="8" refX="4" refY="4" fill="var(--darkgreen)" >
-                <circle cx="4" cy="4" r="4" />
+              <marker id="prayerMarker" viewBox="0 0 10 10" markerWidth="5" markerHeight="5" refX="5" refY="5" fill="var(--highlight)" >
+                <circle cx="5" cy="5" r="5" />
               </marker>
             </defs>
             <circle class="ring ring--seconds" r="125" fill="transparent" pathlength="60" />
@@ -33,14 +33,14 @@
             <path class="prayertime maghrib-arc" id="maghrib-arc" />
             <path class="prayertime isha-arc" id="isha-arc" />
             <path class="prayertime fajr-arc" id="fajr-arc" />
+            
+            <circle id="prayer-tracker" r="5" fill="var(--secondary)" />
 
-            <text class="prayer--labels">
-              <textPath id="dhuhr-arabic" href="#dhuhr-arc" startOffset="50%" text-anchor="middle" >الظهر</textPath>
-              <textPath id="asr-arabic" href="#asr-arc" startOffset="50%" text-anchor="middle">العصر</textPath>
-              <textPath id="maghrib-arabic" href="#maghrib-arc" startOffset="50%" text-anchor="middle">المغرب</textPath>
-              <textPath id="isha-arabic" href="#isha-arc" startOffset="50%" text-anchor="middle">العشاء</textPath>
-              <textPath id="fajr-arabic" href="#fajr-arc" startOffset="50%" text-anchor="middle">الفجر</textPath>
-            </text>
+            <text class="prayer--labels" id="dhuhr" text-anchor="middle">الظهر</text>
+            <text class="prayer--labels" id="asr" text-anchor="middle">العصر</text>
+            <text class="prayer--labels" id="maghrib" text-anchor="middle">المغرب</text>
+            <text class="prayer--labels" id="isha" text-anchor="middle">العشاء</text>
+            <text class="prayer--labels" id="fajr" text-anchor="middle">الفجر</text>
           </svg>
         </div>
       </div>

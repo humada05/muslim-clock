@@ -9,7 +9,15 @@ const UI = {
   asr_arc: document.querySelector('.asr-arc'),
   maghrib_arc: document.querySelector('.maghrib-arc'),
   isha_arc: document.querySelector('.isha-arc'),
-  fajr_arc: document.querySelector('.fajr-arc')
+  fajr_arc: document.querySelector('.fajr-arc'),
+
+  dhuhr_txt: document.querySelector("#dhuhr"),
+  asr_txt: document.querySelector("#asr"),
+  maghrib_txt: document.querySelector("#maghrib"),
+  isha_txt: document.querySelector("#isha"),
+  fajr_txt: document.querySelector("#fajr"),
+
+  prayer_tracker: document.querySelector("#prayer-tracker")
 }
 
 function timeToDegrees(time) {
@@ -49,10 +57,15 @@ function describeArc(x, y, radius, startAngle, endAngle){
     return d;       
 }
 
+function transformText(x, y, radius, startAngle, endAngle){
+  var centerAngle = (startAngle + endAngle)/2;
+  var translationPoint = polarToCartesian(x, y, radius + 5, centerAngle);
+   return `translate(${translationPoint.x}, ${translationPoint.y}) rotate(${centerAngle})`;
+}
+
 const updateClock = () => {
   // GETTING TIME
   const now = new Date();
-  // const date = now.getDate();
   const seconds = (now.getSeconds() + now.getMilliseconds() / 1000) / 60 * 360;
   const minutes = (now.getMinutes() + now.getSeconds() / 60) / 60 * 360;
   const hours = (now.getHours() + now.getMinutes() / 60) / 12 * 360;
@@ -75,23 +88,34 @@ const updateClock = () => {
   const biggerRadius = 180;
   const smallerRadius = 145;
 
+  const prayerTackerCoordinates = (isha < hours || hours < sunrise) ? polarToCartesian(0,0, biggerRadius, hours) : polarToCartesian(0,0, smallerRadius, hours);
+
   UI.dhuhr_arc.setAttribute("d", describeArc(0, 0, smallerRadius, dhuhr, asr));
   UI.asr_arc.setAttribute("d", describeArc(0, 0, smallerRadius, asr, maghrib));
   UI.maghrib_arc.setAttribute("d", describeArc(0, 0, smallerRadius, maghrib, isha));
   UI.isha_arc.setAttribute("d", describeArc(0, 0, biggerRadius, isha, fajr));
   UI.fajr_arc.setAttribute("d", describeArc(0, 0, biggerRadius, fajr, sunrise));
 
-  // if (dhuhr < hours && hours < asr) {
-    // UI.dhuhr_arc.style.stroke = "var(--red)";
-    // UI.dhuhr_arc.style.strokeWidth = "2";
-  // } else if (asr < hours && hours < maghrib) {
-    // UI.asr_arc.style.stroke = "blue";
-    // UI.asr_arc.style.strokeWidth = "3";
-  // } else if (maghrib < hours && hours < isha) {
-    // UI.maghrib_arc.style.stroke = "brown";
-    // UI.maghrib_arc.style.strokeWidth = "3";
-  // }
-  //  else if ()
+  UI.dhuhr_txt.setAttribute("transform", transformText(0,0,smallerRadius, dhuhr, asr));
+  UI.asr_txt.setAttribute("transform", transformText(0,0,smallerRadius, asr, maghrib));
+  UI.maghrib_txt.setAttribute("transform", transformText(0,0, smallerRadius, maghrib, isha));
+  UI.isha_txt.setAttribute("transform", transformText(0,0,biggerRadius, isha, fajr));
+  UI.fajr_txt.setAttribute("transform", transformText(0,0,biggerRadius, fajr, sunrise));
+
+  
+  if (fajr < hours && hours < sunrise) {
+    UI.fajr_arc.style.stroke = UI.fajr_txt.style.stroke = UI.fajr_txt.style.fill = "var(--secondary)";
+  } else if (dhuhr < hours && hours < asr) {
+    UI.dhuhr_arc.style.stroke = UI.dhuhr_txt.style.stroke = UI.dhuhr_txt.style.fill = "var(--secondary)";
+  } else if (asr < hours && hours < maghrib) {
+    UI.asr_arc.style.stroke = UI.asr_txt.style.stroke = UI.asr_txt.style.fill = "var(--secondary)";
+  } else if (maghrib < hours && hours < isha) {
+    UI.maghrib_arc.style.stroke = UI.maghrib_txt.style.stroke = UI.maghrib_txt.style.fill = "var(--secondary)";
+  } else if (isha < hours || hours < fajr) {
+    UI.isha_arc.style.stroke = UI.isha_txt.style.stroke = UI.isha_txt.style.fill = "var(--secondary)";
+  }
+
+  UI.prayer_tracker.setAttribute("transform",`translate(${prayerTackerCoordinates.x}, ${prayerTackerCoordinates.y})`)
 
   requestAnimationFrame(updateClock)
 }
