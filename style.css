@@ -69,13 +69,15 @@
     stroke-width: 5;
   }
 
-  svg .prayertime {
+  .prayertime {
     marker-start:url(#prayerMarker);
     marker-end:url(#prayerMarker);
     stroke: var(--highlight);
     fill:none;
+    opacity: .4;
   }
 
   .prayer--labels {
+    stroke-width: .5;
     fill:var(--highlight);
   }
