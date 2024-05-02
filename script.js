@@ -88,7 +88,7 @@ const updateClock = () => {
   const biggerRadius = 180;
   const smallerRadius = 145;
 
-  const opacityAlpha = 0.3;
+  const opacityAlpha = 0.4;
 
   const prayerTackerCoordinates = (isha < hours || hours < sunrise) ? polarToCartesian(0, 0, biggerRadius, hours) : polarToCartesian(0, 0, smallerRadius, hours);
 
@@ -103,6 +103,18 @@ const updateClock = () => {
   UI.maghrib_txt.setAttribute("transform", transformText(0, 0, smallerRadius, maghrib, isha));
   UI.isha_txt.setAttribute("transform", transformText(0, 0, biggerRadius, isha, fajr));
   UI.fajr_txt.setAttribute("transform", transformText(0, 0, biggerRadius, fajr, sunrise));
+
+
+  UI.fajr_arc.style.stroke = UI.fajr_txt.style.stroke = UI.fajr_txt.style.fill = "var(--highlight)";
+  UI.fajr_arc.style.opacity = UI.fajr_txt.style.opacity = opacityAlpha;
+  UI.dhuhr_arc.style.stroke = UI.dhuhr_txt.style.stroke = UI.dhuhr_txt.style.fill = "var(--highlight)";
+  UI.dhuhr_arc.style.opacity = UI.dhuhr_txt.style.opacity = opacityAlpha;
+  UI.asr_arc.style.stroke = UI.asr_txt.style.stroke = UI.asr_txt.style.fill = "var(--highlight)";
+  UI.asr_arc.style.opacity = UI.asr_txt.style.opacity = opacityAlpha;
+  UI.maghrib_arc.style.stroke = UI.maghrib_txt.style.stroke = UI.maghrib_txt.style.fill = "var(--highlight)";
+  UI.maghrib_arc.style.opacity = UI.maghrib_txt.style.opacity = opacityAlpha;
+  UI.isha_arc.style.stroke = UI.isha_txt.style.stroke = UI.isha_txt.style.fill = "var(--highlight)";
+  UI.isha_arc.style.opacity = UI.isha_txt.style.opacity = opacityAlpha;
 
   if (fajr < hours && hours < sunrise) {
     UI.fajr_arc.style.stroke = UI.fajr_txt.style.stroke = UI.fajr_txt.style.fill = "var(--secondary)";
