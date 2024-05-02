@@ -128,7 +128,7 @@ const updateClock = () => {
 
   if (fajr < hours && hours < sunrise) {
     UI.fajr_arc.style.stroke = UI.fajr_txt.style.stroke = UI.fajr_txt.style.fill = "var(--secondary)";
-    UI.fajr_arc.style.opacity = UI.isha_txt.style.opacity = 1;
+    UI.fajr_arc.style.opacity = UI.fajr_txt.style.opacity = 1;
   } else if (dhuhr < hours && hours < asr) {
     UI.dhuhr_arc.style.stroke = UI.dhuhr_txt.style.stroke = UI.dhuhr_txt.style.fill = "var(--secondary)";
     UI.dhuhr_arc.style.opacity = UI.dhuhr_txt.style.opacity = 1;
