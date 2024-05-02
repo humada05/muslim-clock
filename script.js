@@ -59,8 +59,17 @@ function describeArc(x, y, radius, startAngle, endAngle) {
 
 function transformText(x, y, radius, startAngle, endAngle) {
   var centerAngle = (startAngle + endAngle) / 2;
-  var translationPoint = polarToCartesian(x, y, radius + 5, centerAngle);
-  return `translate(${translationPoint.x}, ${translationPoint.y}) rotate(${centerAngle})`;
+  var rotationAngle = centerAngle;
+  var padding = 5;
+  if ( 4*30 < centerAngle%360 && centerAngle%360 < 8*30) {
+    rotationAngle += 180;
+    padding = 25
+  }
+
+  var translationPoint = polarToCartesian(x, y, radius + padding, centerAngle);
+
+  // = ( 4*30 < centerAngle%360 && centerAngle%360 < 8*30) ? centerAngle+180 : centerAngle;
+  return `translate(${translationPoint.x}, ${translationPoint.y}) rotate(${rotationAngle})`;
 }
 
 const updateClock = () => {
@@ -92,6 +101,7 @@ const updateClock = () => {
 
   const prayerTackerCoordinates = (isha < hours || hours < sunrise) ? polarToCartesian(0, 0, biggerRadius, hours) : polarToCartesian(0, 0, smallerRadius, hours);
 
+  // garbage code pleaaaase get rid of this 🙏
   UI.dhuhr_arc.setAttribute("d", describeArc(0, 0, smallerRadius, dhuhr, asr));
   UI.asr_arc.setAttribute("d", describeArc(0, 0, smallerRadius, asr, maghrib));
   UI.maghrib_arc.setAttribute("d", describeArc(0, 0, smallerRadius, maghrib, isha));
