@@ -97,7 +97,7 @@ const updateClock = () => {
   const biggerRadius = 180;
   const smallerRadius = 145;
 
-  const opacityAlpha = 0.4;
+  const opacityAlpha = 0.2;
 
   const prayerTackerCoordinates = (isha < hours || hours < sunrise) ? polarToCartesian(0, 0, biggerRadius, hours) : polarToCartesian(0, 0, smallerRadius, hours);
 

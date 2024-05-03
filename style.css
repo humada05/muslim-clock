@@ -63,7 +63,7 @@
     marker-end:url(#prayerMarker);
     stroke: var(--highlight);
     fill:none;
-    opacity: .4;
+    opacity: .2;
   }
 
   .prayer--labels {
