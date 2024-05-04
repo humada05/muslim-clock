@@ -13,7 +13,7 @@
   
   body {
     background-color: var(--main);
-    font-family: BlinkMacSystemFont, 'Helvetica Neue';
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue';
     font-size: 2rem;
   }
   
