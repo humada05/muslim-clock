@@ -14,7 +14,7 @@
   <main>
     <div class="container">
       <div class="clock">
-        <svg class="clockface" width="500" height="500" viewbox="-250 -250 500 500" >
+        <svg class="clockface" width="500" height="500" viewbox="-250 -250 500 500">
           <defs>
             <marker id="prayerMarker" viewBox="0 0 10 10" markerWidth="5" markerHeight="5" refX="5" refY="5"
               fill="var(--highlight)">
@@ -23,7 +23,21 @@
           </defs>
           <circle class="ring ring--seconds" r="125" fill="transparent" pathlength="60" />
           <circle class="ring ring--hours" r="125" pathlength="12" />
-          <line class="hand hand--minute" x1="0" y1="2" x2="0" y2="-110" />
+          
+          <text class="hour-number" transform="translate(0,-110) rotate(30)" transform-origin="0 110">1</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(60)" transform-origin="0 110">2</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(90)" transform-origin="0 110">3</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(120)" transform-origin="0 110">4</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(150)" transform-origin="0 110">5</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(180)" transform-origin="0 110">6</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(210)" transform-origin="0 110">7</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(240)" transform-origin="0 110">8</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(270)" transform-origin="0 110">9</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(300)" transform-origin="0 110">10</text>
+          <text class="hour-number" transform="translate(0,-110) rotate(330)" transform-origin="0 110">11</text>
+          <text class="hour-number" transform="translate(0,-110)" transform-origin="0 110">12</text>
+
+          <line class="hand hand--minute" x1="0" y1="2" x2="0" y2="-105" />
           <line class="hand hand--hour" x1="0" y1="2" x2="0" y2="-60" />
           <line class="hand hand--second" x1="0" y1="12" x2="0" y2="-130" />
           <circle class="ring ring--center" r="3" />
@@ -36,11 +50,11 @@
 
           <circle id="prayer-tracker" r="5" fill="var(--secondary)" />
 
-          <text class="prayertime prayer--labels" id="dhuhr" text-anchor="middle">الظهر</text>
-          <text class="prayertime prayer--labels" id="asr" text-anchor="middle">العصر</text>
-          <text class="prayertime prayer--labels" id="maghrib" text-anchor="middle">المغرب</text>
-          <text class="prayertime prayer--labels" id="isha" text-anchor="middle">العشاء</text>
-          <text class="prayertime prayer--labels" id="fajr" text-anchor="middle">الفجر</text>
+          <text class="prayertime prayer--labels" id="dhuhr">الظهر</text>
+          <text class="prayertime prayer--labels" id="asr">العصر</text>
+          <text class="prayertime prayer--labels" id="maghrib">المغرب</text>
+          <text class="prayertime prayer--labels" id="isha">العشاء</text>
+          <text class="prayertime prayer--labels" id="fajr">الفجر</text>
         </svg>
       </div>
     </div>

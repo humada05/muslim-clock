@@ -5,7 +5,7 @@
   }
   
   :root {
-    --main: #fffffe;
+    --main: #fffaf1;
     --highlight: #067380;
     --secondary: #f25f4c;
     --stroke: #1f1235;
@@ -13,7 +13,7 @@
   
   body {
     background-color: var(--main);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: BlinkMacSystemFont, 'Helvetica Neue';
     font-size: 2rem;
   }
   
@@ -28,6 +28,7 @@
     fill: var(--highlight);
     stroke: var(--stroke);
     stroke-width: 5;
+    fill: transparent;
     stroke-dasharray:.1 .9; stroke-dashoffset: .05;
   }
   
@@ -43,7 +44,13 @@
     stroke: var(--stroke);
     stroke-width: 2.5;
   }
-  
+
+  .hour-number {
+    text-anchor:middle;
+    /* font: 10px BlinkMacSystemFont; */
+    font: 10px 'Helvetica Neue';
+  }
+
   .hand {
     stroke-linecap: round;
     stroke: var(--stroke);
@@ -69,4 +76,5 @@
   .prayer--labels {
     stroke-width: .5;
     fill:var(--highlight);
+    text-anchor:middle;
   }

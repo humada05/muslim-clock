@@ -68,7 +68,6 @@ function transformText(x, y, radius, startAngle, endAngle) {
 
   var translationPoint = polarToCartesian(x, y, radius + padding, centerAngle);
 
-  // = ( 4*30 < centerAngle%360 && centerAngle%360 < 8*30) ? centerAngle+180 : centerAngle;
   return `translate(${translationPoint.x}, ${translationPoint.y}) rotate(${rotationAngle})`;
 }
 
@@ -79,14 +78,25 @@ const updateClock = () => {
   const minutes = (now.getMinutes() + now.getSeconds() / 60) / 60 * 360;
   const hours = (now.getHours() + now.getMinutes() / 60) / 12 * 360;
 
-  const prayTimes = new PrayTimes('ISNA').getTimes(new Date(), [37.8, -122])
+  // URL parameters
+  let params = new URLSearchParams(document.location.search);
+  let lat = params.has('lat') ? params.get('lat') : 37.8;
+  let lng = params.has('lng') ? params.get('lng') : -122;
 
-  const fajr = timeToDegrees(prayTimes['fajr'])
-  const sunrise = timeToDegrees(prayTimes['sunrise'])
-  const dhuhr = timeToDegrees(prayTimes['dhuhr'])
-  const asr = timeToDegrees(prayTimes['asr'])
-  const maghrib = timeToDegrees(prayTimes['maghrib'])
-  const isha = timeToDegrees(prayTimes['isha'])
+  const prayTimes = new PrayTimes('ISNA');
+
+  if (params.get('asr') === "Hanafi") {
+    prayTimes.adjust({asr:"Hanafi"});
+  }
+  
+  const currentPrayerTimes = prayTimes.getTimes(new Date(), [lat, lng]);
+
+  const fajr = timeToDegrees(currentPrayerTimes['fajr'])
+  const sunrise = timeToDegrees(currentPrayerTimes['sunrise'])
+  const dhuhr = timeToDegrees(currentPrayerTimes['dhuhr'])
+  const asr = timeToDegrees(currentPrayerTimes['asr'])
+  const maghrib = timeToDegrees(currentPrayerTimes['maghrib'])
+  const isha = timeToDegrees(currentPrayerTimes['isha'])
 
 
   // UI Update
