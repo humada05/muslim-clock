@@ -5,7 +5,7 @@
   }
   
   :root {
-    --main: #fffaf1;
+    --main: #fffdfa;
     --highlight: #067380;
     --secondary: #f25f4c;
     --stroke: #1f1235;
@@ -26,9 +26,9 @@
 
   .ring--seconds {
     fill: var(--highlight);
+    fill-opacity: .1;
     stroke: var(--stroke);
     stroke-width: 5;
-    fill: transparent;
     stroke-dasharray:.1 .9; stroke-dashoffset: .05;
   }
   
