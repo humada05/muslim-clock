@@ -83,7 +83,9 @@ const updateClock = () => {
   let lat = params.has('lat') ? params.get('lat') : 37.8;
   let lng = params.has('lng') ? params.get('lng') : -122;
 
-  const prayTimes = new PrayTimes('ISNA');
+  let method = params.has('method') ? params.get('method') : 'ISNA';
+
+  const prayTimes = new PrayTimes(method);
 
   if (params.get('asr') === "Hanafi") {
     prayTimes.adjust({asr:"Hanafi"});
@@ -104,7 +106,7 @@ const updateClock = () => {
   UI.minute.style.transform = `rotate(${minutes}deg)`;
   UI.hour.style.transform = `rotate(${hours}deg)`;
 
-  const biggerRadius = 180;
+  const biggerRadius = 185;
   const smallerRadius = 145;
 
   const opacityAlpha = 0.2;
