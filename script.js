@@ -81,7 +81,7 @@ const updateClock = () => {
   // URL parameters
   let params = new URLSearchParams(document.location.search);
   let lat = params.has('lat') ? params.get('lat') : 37.8;
-  let lng = params.has('lng') ? params.get('lng') : -122;
+  let long = params.has('long') ? params.get('long') : -122;
 
   let method = params.has('method') ? params.get('method') : 'ISNA';
 
@@ -91,7 +91,7 @@ const updateClock = () => {
     prayTimes.adjust({asr:"Hanafi"});
   }
   
-  const currentPrayerTimes = prayTimes.getTimes(new Date(), [lat, lng]);
+  const currentPrayerTimes = prayTimes.getTimes(new Date(), [lat, long]);
 
   const fajr = timeToDegrees(currentPrayerTimes['fajr'])
   const sunrise = timeToDegrees(currentPrayerTimes['sunrise'])
